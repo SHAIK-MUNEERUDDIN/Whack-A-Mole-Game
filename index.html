@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack A Mole</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="animations">
+        <marquee behavior="scroll" direction="right" scrollamount="5"><img src="./assets/cloud.png" alt=""></marquee>
+        <marquee class="dc" behavior="scroll" direction="right" scrollamount="7"><img src="./assets/cloud-2.png" alt="">
+        </marquee>
+        <marquee behavior="scroll" direction="right" scrollamount="6"><img src="./assets/cloud.png" alt=""></marquee>
+        <marquee class="birds" behavior="scroll" direction="left" scrollamount="6"><img src="./assets/birds.gif" alt="">
+        </marquee>
+    </div>
+    <section class="container">
+        <div class="bg">
+            <img src="./assets/background-3.png" alt="">
+        </div>
+        <div class="main">
+            <h1>Whack A Mole</h1>
+            <div class="status">
+                <h2>Your Score: <span>0</span></h2>
+                <h2>Time Left: <span>60</span></h2>
+            </div>
+            <div class="buttons">
+                <button class="Start">Start <br> New Game</button>
+                <button class="Pause">Pause</button>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="square" id="0"></div>
+            <div class="square" id="1"></div>
+            <div class="square" id="2"></div>
+            <div class="square" id="3"></div>
+            <div class="square" id="4"></div>
+            <div class="square" id="5"></div>
+            <div class="square" id="6"></div>
+            <div class="square" id="7"></div>
+            <div class="square" id="8"></div>
+        </div>
+    </section>
+</body>
+
+</html>

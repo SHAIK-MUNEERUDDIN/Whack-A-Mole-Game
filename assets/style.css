@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(to bottom, #06eeff, #a9dfec, #7ea7b9);
+}
+
+.animations {
+    position: absolute;
+    width: 100%;
+}
+
+marquee {
+    width: 100%;
+}
+
+marquee img {
+    width: 100px;
+    height: 70px;
+}
+
+.dc img {
+    width: 150px;
+    height: 70px;
+}
+
+.birds img {
+    width: 150px;
+    height: 100px;
+    z-index: -10;
+}
+
+.bg {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.bg img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 130px;
+}
+
+.container {
+    display: flex;
+    height: 55rem;
+    justify-content: space-around;
+    z-index: 5;
+    position: relative;
+}
+
+
+h1 {
+    color: #007cff;
+    font-size: 4.5rem;
+    text-shadow: 1px 1px 1px black;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    height: 30rem;
+    margin-top: 20rem;
+}
+
+.buttons {
+    display: inline-block;
+    text-align: center;
+}
+
+.container h2 {
+    display: inline-block;
+}
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 60rem;
+    height: 45rem;
+    margin-top: 10rem;
+
+}
+
+.square {
+    width: 150px;
+    height: 130px;
+    border: 1px solid black;
+    box-shadow: 1px 3px 5px rgb(150, 45, 255);
+    margin: 5px;
+    background-image: url(./assets/mole-1.png);
+    background-size: cover;
+    background-color: white;
+}
