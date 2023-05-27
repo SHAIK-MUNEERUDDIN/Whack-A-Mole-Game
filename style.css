@@ -112,7 +112,10 @@ h1 {
     border: 1px solid black;
     box-shadow: 1px 3px 5px rgb(150, 45, 255);
     margin: 5px;
+    background-color: white;
+}
+
+.mole {
     background-image: url(./assets/mole-1.png);
     background-size: cover;
-    background-color: white;
 }
