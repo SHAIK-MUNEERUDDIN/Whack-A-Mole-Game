@@ -9,13 +9,12 @@
 
 html {
     font-size: 62.5%;
-    overflow-x: hidden;
-    /* overflow-y: hidden; */
     scroll-behavior: smooth;
 }
 
 body {
     background: linear-gradient(to bottom, #06eeff, #a9dfec, #7ea7b9);
+    height: 100vh;
 }
 
 .animations {
@@ -110,12 +109,23 @@ h1 {
     width: 150px;
     height: 130px;
     border: 1px solid black;
-    box-shadow: 1px 3px 5px rgb(150, 45, 255);
+    box-shadow: 2px 5px 5px 1px rgb(4, 13, 15);
     margin: 5px;
-    background-color: white;
+    background-color: #9b7349;
+    cursor: pointer;
 }
 
 .mole {
-    background-image: url(../../assets/media/mole-1.png);
+    background-image: url(../../assets/media/mole.png);
+    background-size: cover;
+}
+
+.mole-stunned {
+    background-image: url(../../assets/media/mole-stunned.png);
+    background-size: cover;
+}
+
+.mole-laughing {
+    background-image: url(../../assets/media/mole-laughing.png);
     background-size: cover;
 }
