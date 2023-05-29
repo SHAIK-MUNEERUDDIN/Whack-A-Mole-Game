@@ -41,6 +41,10 @@ marquee img {
     z-index: -10;
 }
 
+.bg-2 {
+    display: none !important;
+}
+
 #bg {
     position: absolute;
     top: 80px;
@@ -61,7 +65,7 @@ marquee img {
 
 .container {
     display: flex;
-    height: 55rem;
+    height: 70rem;
     justify-content: space-around;
     z-index: 5;
     position: relative;

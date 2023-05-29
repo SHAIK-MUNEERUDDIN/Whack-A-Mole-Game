@@ -26,7 +26,8 @@
         </div>
         <section class="container">
             <div id="bg">
-                <img id="bg-img" draggable="false" src="./assets/media/background-3.png" alt="">
+                <img class="bg-1" draggable="false" src="./assets/media/background-3.png" alt="">
+                <img class="bg-2" draggable="false" src="./assets/media/background-mobile.png" alt="">
             </div>
             <div class="main">
                 <h1>Whack A Mole</h1>
@@ -66,27 +67,6 @@
     </section>
 
     <script src="./assets/js/main.js"></script>
-    <script>
-
-
-        window.addEventListener('DOMContentLoaded', function () {
-            var backgroundImage = document.getElementById("bg-img")
-
-            function updateBackgroundImage() {
-                if (window.innerWidth <= 480) {
-                    backgroundImage.src = './assets/media/background-mobile.png';
-                } else {
-                    backgroundImage.src = './assets/media/background-3.png';
-                }
-            }
-
-            // Update the background image initially
-            updateBackgroundImage();
-
-            // Update the background image on window resize
-            window.addEventListener('resize', updateBackgroundImage);
-        });
-    </script>
 </body>
 
 </html>

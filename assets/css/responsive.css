@@ -18,6 +18,13 @@
 }
 
 @media only screen and (max-width: 480px) {
+    .bg-1 {
+        display: none !important;
+    }
+
+    .bg-2 {
+        display: block !important;
+    }
 
     html {
         font-size: 55%;
@@ -33,7 +40,7 @@
         height: 850px;
     }
 
-    #bg-img {
+    #bg img {
         height: 900px !important;
         top: 0px !important;
     }
