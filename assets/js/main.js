@@ -6,6 +6,8 @@ let grid = document.getElementsByClassName("grid")[0];
 let squares = document.querySelectorAll(".square");
 let gameMusic = new Audio("../../assets/media/gameMusic.mp3");
 let hitMusic = new Audio("../../assets/media/smash.mp3");
+let pauseMusuic = new Audio("../../assets/media/pause.wav");
+let mockMusic = new Audio("../../assets/media/mock.wav");
 
 let score = 0;
 let timeLeft = 60;
@@ -66,6 +68,11 @@ function startGame() {
 function pauseResume() {
     if (pauseResumeBtn.textContent === "Pause") {
         gameMusic.pause();
+        pauseMusuic.play();
+        setTimeout(() => {
+            pauseMusic.pause();
+            pauseMusic.currentTime = 0;
+        }, 300);
         clearInterval(timerId);
         clearInterval(randomMoleId);
         timerId = null;
@@ -97,6 +104,11 @@ squares.forEach(square => {
             else {
                 square.classList.add("mole-laughing");
                 setTimeout(() => { square.classList.remove("mole-laughing"); }, 200);
+                mockMusic.play();
+                setTimeout(() => {
+                    mockMusic.pause();
+                    mockMusic.currentTime = 0;
+                }, 500);
             }
         }
     })
