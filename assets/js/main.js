@@ -9,6 +9,8 @@ let hitMusic = new Audio("../../assets/media/smash.mp3");
 let pauseMusic = new Audio("../../assets/media/pause.wav");
 let mockMusic = new Audio("../../assets/media/mock.wav");
 let inputBtn = document.querySelectorAll("input");
+let highScore = document.getElementById("high-score");
+
 
 let score = 0;
 let timeLeft = 60;
@@ -22,6 +24,13 @@ let easy = document.getElementById("easy");
 let medium = document.getElementById("medium");
 let hard = document.getElementById("hard");
 easy.checked = true;
+
+function displayEasyHighScore() {
+    let storedScore = localStorage.getItem("Easy-High_Score");
+    highScore.innerHTML = storedScore !== null ? storedScore : "0";
+    highScore.style.color = "#5de011"
+}
+displayEasyHighScore();
 
 
 //this function will place mole at random positions
@@ -51,12 +60,21 @@ function countDown() {
         hitPosition2 = null;
         timerId = null;
 
+
+        randomMoleId = easy.checked ? easyScore(score) :
+            medium.checked ? mediumScore(score) :
+                hard.checked ? hardScore(score) :
+                    null;
+
+
+
+        // enabling back the difficulty options to chose when game finishes
         inputBtn.forEach(input => {
             input.disabled = false;
         });
     }
+
 }
-randomMole();
 
 
 
@@ -142,6 +160,48 @@ squares.forEach(square => {
         }
     })
 })
+
+
+// function scoreStorage() {
+
+
+// }
+
+function updateScore(score, difficulty) {
+    console.log("hello");
+    var storedScore = localStorage.getItem(`${difficulty}-High_Score`);
+    if (storedScore == null || score > parseInt(storedScore)) {
+        highScore.innerHTML = score;
+        localStorage.setItem(`${difficulty}-High_Score`, score);
+    }
+}
+
+function easyScore(score) {
+    updateScore(score, "Easy");
+}
+
+function mediumScore(score) {
+    updateScore(score, "Medium");
+}
+
+function hardScore(score) {
+    updateScore(score, "Hard");
+}
+
+
+easy.addEventListener("click", displayEasyHighScore);
+
+medium.addEventListener("click", function () {
+    let storedScore = localStorage.getItem("Medium-High_Score");
+    highScore.innerHTML = storedScore !== null ? storedScore : "0";
+    highScore.style.color = "yellow"
+});
+
+hard.addEventListener("click", function () {
+    let storedScore = localStorage.getItem("Hard-High_Score");
+    highScore.innerHTML = storedScore !== null ? storedScore : "0";
+    highScore.style.color = "red"
+});
 
 startBtn.addEventListener('click', startGame);
 pauseResumeBtn.addEventListener('click', pauseResume);
