@@ -24,16 +24,17 @@
     }
 
     .container {
-        top: -200px;
+        top: 0px;
+        height: 880px;
     }
 
     #bg {
         top: 30px;
-        height: 900px;
+        height: 850px;
     }
 
     #bg-img {
-        height: 800px !important;
+        height: 900px !important;
         top: 0px !important;
     }
 
