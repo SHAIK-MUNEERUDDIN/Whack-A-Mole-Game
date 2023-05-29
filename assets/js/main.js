@@ -6,14 +6,22 @@ let grid = document.getElementsByClassName("grid")[0];
 let squares = document.querySelectorAll(".square");
 let gameMusic = new Audio("../../assets/media/gameMusic.mp3");
 let hitMusic = new Audio("../../assets/media/smash.mp3");
-let pauseMusuic = new Audio("../../assets/media/pause.wav");
+let pauseMusic = new Audio("../../assets/media/pause.wav");
 let mockMusic = new Audio("../../assets/media/mock.wav");
+let inputBtn = document.querySelectorAll("input");
 
 let score = 0;
 let timeLeft = 60;
 let randomMoleId = null;
 let timerId = null;
 let hitPosition = null;
+let hitPosition2 = null;
+
+
+let easy = document.getElementById("easy");
+let medium = document.getElementById("medium");
+let hard = document.getElementById("hard");
+easy.checked = true;
 
 
 //this function will place mole at random positions
@@ -24,7 +32,10 @@ function randomMole() {
 
     var randomSquare = squares[Math.floor(Math.random() * squares.length)];
     randomSquare.classList.add("mole");
+    var randomSquare2 = squares[Math.floor(Math.random() * squares.length)];
+    randomSquare2.classList.add("mole");
     hitPosition = randomSquare.id;
+    hitPosition2 = randomSquare2.id;
 }
 
 function countDown() {
@@ -37,7 +48,12 @@ function countDown() {
         grid.style.display = "none";
         gameMusic.pause();
         hitPosition = null;
+        hitPosition2 = null;
         timerId = null;
+
+        inputBtn.forEach(input => {
+            input.disabled = false;
+        });
     }
 }
 randomMole();
@@ -61,18 +77,24 @@ function startGame() {
     gameMusic.play();
     // call back functtion occurs at specified interval
     timerId = setInterval(countDown, 1000);
-    randomMoleId = setInterval(randomMole, 900);
+    randomMoleId = easy.checked ? setInterval(randomMole, 1000) :
+        medium.checked ? setInterval(randomMole, 800) :
+            hard.checked ? setInterval(randomMole, 500) :
+                null;
+    inputBtn.forEach(input => {
+        input.disabled = true;
+    });
 
 }
 
 function pauseResume() {
     if (pauseResumeBtn.textContent === "Pause") {
         gameMusic.pause();
-        pauseMusuic.play();
+        pauseMusic.play();
         setTimeout(() => {
             pauseMusic.pause();
             pauseMusic.currentTime = 0;
-        }, 300);
+        }, 500);
         clearInterval(timerId);
         clearInterval(randomMoleId);
         timerId = null;
@@ -83,7 +105,10 @@ function pauseResume() {
         pauseResumeBtn.innerHTML = "Pause";
         gameMusic.play();
         timerId = setInterval(countDown, 1000);
-        randomMoleId = setInterval(randomMole, 900);
+        randomMoleId = easy.checked ? setInterval(randomMole, 1000) :
+            medium.checked ? setInterval(randomMole, 800) :
+                hard.checked ? setInterval(randomMole, 500) :
+                    null;
     }
 }
 
@@ -91,7 +116,7 @@ function pauseResume() {
 squares.forEach(square => {
     square.addEventListener('mousedown', () => {
         if (timerId !== null) {
-            if (square.id == hitPosition) {
+            if (square.id == hitPosition || square.id == hitPosition2) {
                 square.classList.remove("mole");
                 square.classList.add("mole-stunned");
                 hitMusic.play();
@@ -99,7 +124,11 @@ squares.forEach(square => {
                 setTimeout(() => { square.classList.remove("mole-stunned"); }, 500);
                 score++;
                 scoreH2.innerHTML = `Your Score:${score}`;
-                hitPosition = null;
+                if (square.id == hitPosition) {
+                    hitPosition = null;
+                } else if (square.id == hitPosition2) {
+                    hitPosition2 = null;
+                }
             }
             else {
                 square.classList.add("mole-laughing");
@@ -116,3 +145,4 @@ squares.forEach(square => {
 
 startBtn.addEventListener('click', startGame);
 pauseResumeBtn.addEventListener('click', pauseResume);
+
