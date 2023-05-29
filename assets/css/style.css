@@ -128,10 +128,47 @@ h1 {
     border: none;
 }
 
+#difficulty {
+    display: flex;
+    margin-top: 15px;
+    text-shadow: 2px 1px 2px black;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+#difficulty input,
+label {
+    font-size: 1.5rem;
+}
+
+#difficulty label {
+    margin-right: 20px;
+    padding: 0 5px;
+}
+
 .container h2 {
     display: inline-block;
 }
 
+.easy-lbl {
+    color: #5de011;
+}
+
+.medium-lbl {
+    color: yellow;
+}
+
+.hard-lbl {
+    color: red;
+}
+
+.status-2 {
+    margin-top: 15px;
+    color: rgb(226, 61, 248);
+    text-shadow: 1px 1px 1px black;
+    font-size: 1.3rem;
+}
 
 .grid {
     display: none;
