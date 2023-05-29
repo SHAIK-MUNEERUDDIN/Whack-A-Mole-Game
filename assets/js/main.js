@@ -138,8 +138,8 @@ squares.forEach(square => {
                 square.classList.remove("mole");
                 square.classList.add("mole-stunned");
                 hitMusic.play();
-                setTimeout(() => { hitMusic.pause() }, 500);
-                setTimeout(() => { square.classList.remove("mole-stunned"); }, 500);
+                setTimeout(() => { hitMusic.pause() }, 400);
+                setTimeout(() => { square.classList.remove("mole-stunned"); }, 400);
                 score++;
                 scoreH2.innerHTML = `Your Score:${score}`;
                 if (square.id == hitPosition) {
