@@ -12,9 +12,8 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
+.wrapper {
     background: linear-gradient(to bottom, #06eeff, #a9dfec, #7ea7b9);
-    height: 100vh;
 }
 
 .animations {
