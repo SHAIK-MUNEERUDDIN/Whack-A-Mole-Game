@@ -23,14 +23,18 @@
         font-size: 55%;
     }
 
+    .container {
+        top: -200px;
+    }
+
     #bg {
-        top: 50px;
-        height: 900px;
+        top: 0px;
+        height: 750px;
     }
 
     #bg-img {
         height: 900px;
-        top: 0;
+        top: 0px !important;
     }
 
     .grid {
@@ -54,4 +58,19 @@
         margin: 5px;
     }
 
+    .container h2 {
+        margin: 16px 0;
+    }
+
+    #difficulty {
+        margin-top: 20px;
+    }
+
+    .status-2 {
+        margin: 0px;
+    }
+
+    .grid {
+        margin: 55px auto;
+    }
 }
