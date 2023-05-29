@@ -1,0 +1,57 @@
+@media only screen and (max-width: 968px) {
+    .animations {
+        position: static;
+    }
+
+    .container {
+        display: block;
+        top: -400px;
+    }
+
+    #bg {
+        top: 400px;
+    }
+
+    .grid {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    #bg {
+        top: 50px;
+        height: 900px;
+    }
+
+    #bg-img {
+        height: 900px;
+        top: 0;
+    }
+
+    .grid {
+        width: 400px;
+    }
+
+    .square {
+        width: 120px;
+        height: 110px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .grid {
+        width: 340px;
+    }
+
+    .square {
+        width: 95px;
+        height: 95px;
+        margin: 5px;
+    }
+
+}
