@@ -29,16 +29,28 @@
         <div class="main">
             <h1>Whack A Mole</h1>
             <div class="status">
-                <h2>Your Score: <span>0</span></h2>
-                <h2>Time Left: <span>60</span></h2>
+                <h2 id="score">Your Score:0</h2>
+                <h2 id="time-left">Time Left:60</h2>
             </div>
             <div class="buttons">
-                <button class="Start">Start <br> New Game</button>
-                <button class="Pause">Pause</button>
+                <button id="start">Start <br> New Game</button>
+                <button id="pause">Pause</button>
+            </div>
+
+            <div id="difficulty">
+                <input type="radio" id="easy" name="mode" value="Easy">
+                <label for="easy" class="easy-lbl">Easy</label><br>
+                <input type="radio" id="medium" name="mode" value="Medium">
+                <label for="css" class="medium-lbl">Medium</label><br>
+                <input type="radio" id="hard" name="mode" value="Hard">
+                <label for="hard" class="hard-lbl">Hard</label>
+            </div>
+            <div class="status-2">
+                <h2>Higheset Score:<span id="high-score">0</span> </h2>
             </div>
         </div>
         <div class="grid">
-            <div class="square mole" id="0"></div>
+            <div class="square" id="0"></div>
             <div class="square" id="1"></div>
             <div class="square" id="2"></div>
             <div class="square" id="3"></div>
@@ -49,6 +61,8 @@
             <div class="square" id="8"></div>
         </div>
     </section>
+
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
