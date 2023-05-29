@@ -29,11 +29,11 @@
 
     #bg {
         top: 0px;
-        height: 750px;
+        height: 900px;
     }
 
     #bg-img {
-        height: 900px;
+        height: 800px !important;
         top: 0px !important;
     }
 
@@ -50,6 +50,7 @@
 @media only screen and (max-width: 400px) {
     .grid {
         width: 340px;
+        margin: 80px auto 0 auto;
     }
 
     .square {
@@ -68,9 +69,5 @@
 
     .status-2 {
         margin: 0px;
-    }
-
-    .grid {
-        margin: 55px auto;
     }
 }
