@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whack A Mole</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
@@ -35,7 +36,7 @@
                     <h2 id="score">Your Score:0</h2>
                     <h2 id="time-left">Time Left:60</h2>
                 </div>
-                <div class="buttons">
+                <div class="game-buttons">
                     <button id="start">Start <br> New Game</button>
                     <button id="pause">Pause</button>
                 </div>
@@ -49,7 +50,7 @@
                     <label for="hard" class="hard-lbl">Hard</label>
                 </div>
                 <div class="status-2">
-                    <h2>Higheset Score:<span id="high-score">0</span> </h2>
+                    <h2>High Score:<span id="high-score">0</span> </h2>
                 </div>
             </div>
             <div class="grid">
@@ -64,6 +65,45 @@
                 <div class="square" id="8"></div>
             </div>
         </section>
+        <div class="info-button">
+            <button id="about" onclick="aboutOpen()"><i class="fa fa-info-circle" aria-hidden="true"></i>About
+            </button>
+        </div>
+        <div id="about-card">
+            <h2 class="heading">Instructions<i class="fa fa-pencil-square-o" aria-hidden="true"></i></h2>
+            <p>Welcome to Whack-a-Mole Game! Your objective is to hit as many moles as you can within the given time
+                limit.
+            </p>
+            <p>Use your mouse to click on the moles when they appear. Each successful hit will earn you points.</p>
+
+            <h2 class="heading">Scoring<i class="fa fa-trophy" aria-hidden="true"></i></h2>
+            <p>Score <span class="green">10 points</span> for each mole you hit successfully. Be careful not to hit any
+                empty holes, as it will
+                result in a penalty of <span class="red">5 points</span>.</p>
+
+            <h2 class="heading">Difficulty Levels<i class="fa fa-gamepad" aria-hidden="true"></i></h2>
+            <p>Choose from three difficulty levels:</p>
+            <ul>
+                <li><span class="green">Easy</span>: Slower moles, suitable for beginners.</li>
+                <li><span class="blue">Medium</span>: Faster moles, providing a moderate challenge.</li>
+                <li><span class="red">Hard</span>: Very fast moles, for expert players looking for a tough challenge.
+                </li>
+            </ul>
+            <div class="center">
+                <h3 class="heading">Found a Bug<i class="fa fa-bug" aria-hidden="true"></i>?</h2>
+                    <p>Feel free to report any bugs or provide valuable feedback to help us improve .</p>
+                    <p>Reach us at: <a href="mailto:skmuneeruddin53@gmail.com" class="fa fa-envelope" aria-label="Mail"
+                            target="_blank"></a></p>
+
+                    <h3 class="developer">Developed By</h2>
+                        <p><a href="https://skmuneeruddin.netlify.app" target="_blank" class="contact-icon">Shaik
+                                Muneeruddin</a>
+                        </p>
+                        <button class="close-btn" onclick="aboutClose()">Close<i class="fa fa-times"
+                                aria-hidden="true"></i>
+                        </button>
+            </div>
+        </div>
     </section>
 
     <script src="./assets/js/main.js"></script>
