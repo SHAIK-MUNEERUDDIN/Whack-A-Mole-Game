@@ -147,6 +147,7 @@ h1 {
 #difficulty input,
 label {
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 #difficulty label {
