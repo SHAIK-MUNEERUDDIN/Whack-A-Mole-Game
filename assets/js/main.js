@@ -18,6 +18,7 @@ let randomMoleId = null;
 let timerId = null;
 let hitPosition = null;
 let hitPosition2 = null;
+let hitPosition3 = null;
 
 
 let easy = document.getElementById("easy");
@@ -43,8 +44,11 @@ function randomMole() {
     randomSquare.classList.add("mole");
     var randomSquare2 = squares[Math.floor(Math.random() * squares.length)];
     randomSquare2.classList.add("mole");
+    var randomSquare3 = squares[Math.floor(Math.random() * squares.length)];
+    randomSquare3.classList.add("mole");
     hitPosition = randomSquare.id;
     hitPosition2 = randomSquare2.id;
+    hitPosition3 = randomSquare3.id;
 }
 
 function countDown() {
@@ -58,6 +62,7 @@ function countDown() {
         gameMusic.pause();
         hitPosition = null;
         hitPosition2 = null;
+        hitPosition3 = null;
         timerId = null;
 
 
@@ -99,6 +104,8 @@ function startGame() {
         medium.checked ? setInterval(randomMole, 800) :
             hard.checked ? setInterval(randomMole, 500) :
                 null;
+
+
     inputBtn.forEach(input => {
         input.disabled = true;
     });
@@ -134,22 +141,32 @@ function pauseResume() {
 squares.forEach(square => {
     square.addEventListener('mousedown', () => {
         if (timerId !== null) {
-            if (square.id == hitPosition || square.id == hitPosition2) {
+            if (square.id == hitPosition || square.id == hitPosition2 || square.id == hitPosition3) {
                 square.classList.remove("mole");
                 square.classList.add("mole-stunned");
                 hitMusic.play();
 
                 setTimeout(() => { hitMusic.pause(); hitMusic.currentTime = 0; }, 400);
                 setTimeout(() => { square.classList.remove("mole-stunned"); }, 400);
-                score++;
+                score = score + 10;
                 scoreH2.innerHTML = `Your Score:${score}`;
                 if (square.id == hitPosition) {
                     hitPosition = null;
                 } else if (square.id == hitPosition2) {
                     hitPosition2 = null;
                 }
+                else if (square.id == hitPosition3) {
+                    hitPosition3 = null;
+                }
             }
             else {
+                score = score - 5;
+                if (score <= 0) {
+                    score = 0;
+                }
+                else {
+                    scoreH2.innerHTML = `Your Score:${score}`;
+                }
                 square.classList.add("mole-laughing");
                 setTimeout(() => { square.classList.remove("mole-laughing"); }, 200);
                 mockMusic.play();
@@ -163,10 +180,7 @@ squares.forEach(square => {
 })
 
 
-// function scoreStorage() {
 
-
-// }
 
 function updateScore(score, difficulty) {
     console.log("hello");
@@ -203,6 +217,20 @@ hard.addEventListener("click", function () {
     highScore.innerHTML = storedScore !== null ? storedScore : "0";
     highScore.style.color = "red"
 });
+
+
+// functions for about card open and close
+let about = document.getElementById("about-card");
+
+function aboutOpen() {
+    about.style.display = "block";
+}
+
+function aboutClose() {
+    about.style.display = "none";
+}
+
+// functions for about card open and close
 
 startBtn.addEventListener('click', startGame);
 pauseResumeBtn.addEventListener('click', pauseResume);
